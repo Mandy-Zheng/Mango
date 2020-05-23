@@ -1,0 +1,3 @@
+push
+move 250 250 0
+cylinder x y z radius height
