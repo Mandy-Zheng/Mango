@@ -3,6 +3,7 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 Unused terminals:
 
     INT
+    VARY_TYPE
 
 Grammar
 
@@ -113,6 +114,7 @@ TEXTURE              : 66
 TORUS                : 19 20 21 22
 TWEEN                : 63
 VARY                 : 47
+VARY_TYPE            : 
 WEB                  : 65
 XYZ                  : 4 43 44
 error                : 

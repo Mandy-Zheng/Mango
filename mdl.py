@@ -28,6 +28,7 @@ tokens = (
     "TWEEN",
     "FRAMES",
     "VARY",
+    "VARY_TYPE",
     "PUSH",
     "POP",
     "SAVE",
@@ -68,6 +69,8 @@ reserved = {
     "tween" : "TWEEN",
     "frames" : "FRAMES",
     "vary" : "VARY",
+    "linear" : "VARY_TYPE",
+    "accelerate" : "VARY_TYPE",
     "push" : "PUSH",
     "pop" : "POP",
     "save" : "SAVE",
@@ -419,9 +422,12 @@ def parseFile(filename):
     try:
         f = open(filename, "r")
         for line in f.readlines():
+            print("====================")
             line = line.strip()
             yacc.parse(line)
+            print(line)
         f.close()
+        #print(commands)
         result = (commands[:], deepcopy(symbols))
         commands = []
         symbols = {}
