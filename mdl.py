@@ -422,10 +422,8 @@ def parseFile(filename):
     try:
         f = open(filename, "r")
         for line in f.readlines():
-            print("====================")
             line = line.strip()
             yacc.parse(line)
-            print(line)
         f.close()
         #print(commands)
         result = (commands[:], deepcopy(symbols))
