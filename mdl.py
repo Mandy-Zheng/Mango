@@ -227,10 +227,10 @@ def p_command_cylinder(p):
     if isinstance(p[2], str):
         cmd['constants'] = p[2]
         arg_start = 3
-    if len(p) == 10 and isinstance(p[9], str):
-        cmd['cs'] = p[9]
-    if len(p) == 11 and isinstance(p[10], str):
-        cmd['cs'] = p[10]
+    if len(p) == 10 and isinstance(p[9], str): #should be len(p) == 8 and p[7]
+        cmd['cs'] = p[9] #should be p[7]
+    if len(p) == 11 and isinstance(p[10], str): #should be len(p) == 9 and p[8]
+        cmd['cs'] = p[10] #should be p[8]
     cmd['args'] = p[arg_start:arg_start+7]
     commands.append(cmd)
 
