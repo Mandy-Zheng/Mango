@@ -1,8 +1,12 @@
-frames 5
-basename roller
+constants bronze 0.2125 0.714 0.393548 0.1275 0.4284 0.271906 0.054 0.18144 0.166721
+constants shiny_purple 1 1 1 1 1 1 1 1 1
 push
-move 0 250 0
-move 500 0 0 roll
-sphere 0 0 0 10
-
-vary roll 0 4 0 1
+move 250 250 0
+rotate y -45
+rotate z -30
+box bronze -75 10 10 150 20 20
+pop
+push
+move 100 250 0
+rotate x -30
+cylinder shiny_purple 0 0 0 50 100

@@ -85,34 +85,16 @@ def draw_polygons( polygons, screen, zbuffer, view, ambient, light, symbols, ref
     while point < len(polygons) - 2:
 
         normal = calculate_normal(polygons, point)[:]
-
+        #print(normal)
         #print normal
         if normal[2] > 0:
 
             color = get_lighting(normal, view, ambient, light, symbols, reflect )
+            #print("=============")
+            #print(ambient)
+            #print(light)
+            #print(reflect)
             scanline_convert(polygons, point, screen, zbuffer, color)
-
-            # draw_line( int(polygons[point][0]),
-            #            int(polygons[point][1]),
-            #            polygons[point][2],
-            #            int(polygons[point+1][0]),
-            #            int(polygons[point+1][1]),
-            #            polygons[point+1][2],
-            #            screen, zbuffer, color)
-            # draw_line( int(polygons[point+2][0]),
-            #            int(polygons[point+2][1]),
-            #            polygons[point+2][2],
-            #            int(polygons[point+1][0]),
-            #            int(polygons[point+1][1]),
-            #            polygons[point+1][2],
-            #            screen, zbuffer, color)
-            # draw_line( int(polygons[point][0]),
-            #            int(polygons[point][1]),
-            #            polygons[point][2],
-            #            int(polygons[point+2][0]),
-            #            int(polygons[point+2][1]),
-            #            polygons[point+2][2],
-            #            screen, zbuffer, color)
         point+= 3
 
 
@@ -266,17 +248,16 @@ def generate_torus( cx, cy, cz, r0, r1, step ):
 
 def generate_cyl(cx, cy, cz, r, step):
     x0 = r + cx
-    y0 = cy
+    z0 = cz
     i = 1
     points=[[cx,cy,cz,1]]
     while i <= step:
         t = float(i)/step
         x1 = r * math.cos(2*math.pi * t) + cx;
-        y1 = r * math.sin(2*math.pi * t) + cy;
-
-        points.append([x1, y1, cz, 1])
+        z1 = r * math.sin(2*math.pi * t) + cz;
+        points.append([x1, cy, z1, 1])
         x0 = x1
-        y0 = y1
+        z0 = z1
         i+= 1
     return points
 
@@ -326,6 +307,7 @@ def add_cyl(polygons,cx, cy, cz, r, h, step):
                     top[i][0],
                     top[i][1],
                     top[i][2])
+
         else:
             add_polygon(polygons,
                     top[0][0],
@@ -369,6 +351,8 @@ def add_cyl(polygons,cx, cy, cz, r, h, step):
                     top[i][2])
 
         i+=1
+
+        #i+=1
 
 def add_circle( points, cx, cy, cz, r, step ):
     x0 = r + cx
