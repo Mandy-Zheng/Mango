@@ -71,6 +71,7 @@ reserved = {
     "vary" : "VARY",
     "linear" : "VARY_TYPE",
     "accelerate" : "VARY_TYPE",
+    "decelerate" : "VARY_TYPE",
     "push" : "PUSH",
     "pop" : "POP",
     "save" : "SAVE",

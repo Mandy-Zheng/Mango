@@ -76,13 +76,23 @@ def second_pass( commands, num_frames ):
                         frames[start][knob] = value1
                         value1 += dx
                         start += 1
-                else:
-                    dx = (1.0/num_frames) / ((num_frames // 2) + 1)
-                    value1+=dx
+                elif args[4]=="accelerate":
+                    dx = (1.0/end) / ((end // 2)+1)
+                    if(value2<value1):
+                        dx=-1*dx
                     while start <= end:
                         frames[start][knob] = value1
                         start += 1
-                        value1 = value1+(start+1)*dx
+                        value1 = value1+start*dx
+                elif args[4]=="decelerate":
+                    dx = (1.0/end) / ((end // 2)+1)
+                    if(value2<value1):
+                        dx=-1*dx
+                    while start <= end:
+                        frames[start][knob] = value1
+                        start += 1
+                        value1 = value1+(num_frames-start)*dx
+
 
     return frames
 
