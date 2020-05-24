@@ -70,11 +70,13 @@ def second_pass( commands, num_frames ):
                 value1 = args[2]
                 value2 = args[3]
                 knob = command ['knob']
-                dx = (value2-value1)/(end-start)
+                dx = (1.0/num_frames) / ((num_frames // 2) + 1)
+                value1+=dx
                 while start <= end:
                     frames[start][knob] = value1
-                    value1 += dx
                     start += 1
+                    value1 = value1+(start+1)*dx
+
     return frames
 
 
