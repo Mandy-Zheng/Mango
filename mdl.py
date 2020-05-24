@@ -425,7 +425,6 @@ def parseFile(filename):
             line = line.strip()
             yacc.parse(line)
         f.close()
-        #print(commands)
         result = (commands[:], deepcopy(symbols))
         commands = []
         symbols = {}
