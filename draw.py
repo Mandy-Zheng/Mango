@@ -374,7 +374,7 @@ def add_cylinder(polygons,cx, cy, cz, r, h, step):
 def add_cone(polygons, cx, cy, cz, r, h, step):
     points = generate_cone(cx, cy, cz, r, h, step)
     for i in range(2, step + 2): #index 2 is first point in the circle
-        if i == step:
+        if i == step + 1:
             add_polygon(polygons,
                         points[0][0], points[0][1], points[0][2],
                         points[2][0], points[2][1], points[2][2],
@@ -386,11 +386,11 @@ def add_cone(polygons, cx, cy, cz, r, h, step):
         else:
             add_polygon(polygons,
                         points[0][0], points[0][1], points[0][2],
-                        points[i + 1][0], points[i + 1][1], points[i + 1][2]
+                        points[i + 1][0], points[i + 1][1], points[i + 1][2],
                         points[i][0], points[i][1], points[i][2])
             add_polygon(polygons,
                         points[i][0], points[i][1], points[i][2],
-                        points[i + 1][0], points[i + 1][2], points[i + 1][2],
+                        points[i + 1][0], points[i + 1][1], points[i + 1][2],
                         points[1][0], points[1][1], points[1][2])
 
 def generate_cone(cx, cy, cz, r, h, step):
@@ -401,7 +401,7 @@ def generate_cone(cx, cy, cz, r, h, step):
         rot = i / float(step)
         x = r * math.cos(2 * math.pi * rot) + cx
         z = r * math.sin(2 * math.pi * rot) + cz
-        points.append(x, cy, z)
+        points.append([x, cy, z])
     return points
 
 
