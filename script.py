@@ -184,9 +184,17 @@ def run(filename):
             elif c == 'cylinder':
                 if command['constants']:
                     reflect = command['constants']
-                add_cyl(tmp,
+                add_cylinder(tmp,
                           args[0], args[1], args[2], args[3], args[4], step_3d)
                 matrix_mult( stack[-1], tmp )
+                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                tmp = []
+                reflect = '.white'
+            elif c == 'cone':
+                if command['constants']:
+                    reflect = command['constants']
+                add_cone(tmp, args[0], args[1], args[2], args[3], args[4], step_3d)
+                matrix_mult(stack[-1], tmp)
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
