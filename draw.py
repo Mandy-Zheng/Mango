@@ -160,33 +160,33 @@ def generate_torus(cx, cy, cz, r0, r1, step):
 def add_cylinder(polygons,cx, cy, cz, r, h, step):
     top = generate_cylinder_face(cx, cy, cz, r, step)
     bottom = generate_cylinder_face(cx, cy - h, cz, r, step)
-    for i in range(1, step):
-        if i == (step - 1):
+    for i in range(1, step + 1):
+        if i == step:
             add_polygon(polygons, top[0][0], top[0][1], top[0][2],
-                        top[i][0], top[i][1], top[i][2],
-                        top[1][0], top[1][1], top[1][2])
-            add_polygon(polygons, bottom[0][0], bottom[0][1], bottom[0][2],
-                        bottom[i][0], bottom[i][1], bottom[i][2],
-                        bottom[1][0], bottom[1][1], bottom[1][2])
-            add_polygon(polygons, top[i][0], top[i][1], top[i][2],
-                        bottom[i][0], bottom[i][1], bottom[i][2],
-                        bottom[1][0], bottom[1][1], bottom[1][2])
-            add_polygon(polygons, bottom[1][0], bottom[1][1], bottom[1][2],
                         top[1][0], top[1][1], top[1][2],
                         top[i][0], top[i][1], top[i][2])
+            add_polygon(polygons, bottom[0][0], bottom[0][1], bottom[0][2],
+                        bottom[i][0], bottom[i][1], bottom[i][2],
+                        bottom[1][0], bottom[1][1], bottom[1][2])
+            add_polygon(polygons, top[i][0], top[i][1], top[i][2],
+                        bottom[1][0], bottom[1][1], bottom[1][2],
+                        bottom[i][0], bottom[i][1], bottom[i][2])
+            add_polygon(polygons, bottom[1][0], bottom[1][1], bottom[1][2],
+                        top[i][0], top[i][1], top[i][2],
+                        top[1][0], top[1][1], top[1][2])
         else:
             add_polygon(polygons, top[0][0], top[0][1], top[0][2],
-                        top[i][0], top[i][1], top[i][2],
-                        top[i + 1][0], top[i + 1][1], top[i + 1][2])
+                        top[i + 1][0], top[i + 1][1], top[i + 1][2],
+                        top[i][0], top[i][1], top[i][2])
             add_polygon(polygons, bottom[0][0], bottom[0][1], bottom[0][2],
                         bottom[i][0], bottom[i][1], bottom[i][2],
                         bottom[i + 1][0], bottom[i + 1][1], bottom[i + 1][2])
             add_polygon(polygons, top[i][0], top[i][1], top[i][2],
-                        bottom[i][0], bottom[i][1], bottom[i][2],
-                        bottom[i + 1][0], bottom[i + 1][1], bottom[i + 1][2])
+                        bottom[i + 1][0], bottom[i + 1][1], bottom[i + 1][2],
+                        bottom[i][0], bottom[i][1], bottom[i][2])
             add_polygon(polygons, bottom[i + 1][0], bottom[i + 1][1], bottom[i + 1][2],
-                        top[i + 1][0], top[i + 1][1], top[i + 1][2],
-                        top[i][0], top[i][1], top[i][2])
+                        top[i][0], top[i][1], top[i][2],
+                        top[i + 1][0], top[i + 1][1], top[i + 1][2])
 
 def generate_cylinder_face(cx, cy, cz, r, step):
     points = []

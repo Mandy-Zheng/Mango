@@ -16,6 +16,6 @@ push
 rotate x -30
 cone brass 0 0 0 40 100
 pop
-rotate x 20
+rotate x -60
 move -100 -100 0
-cone brass 0 0 0 50 200
+cylinder brass 0 0 0 30 100
