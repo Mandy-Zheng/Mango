@@ -1,5 +1,5 @@
-test: simple_anim.mdl main.py matrix.py mdl.py display.py draw.py gmath.py
-	python3 main.py simple_anim.mdl
+test: final.mdl main.py matrix.py mdl.py display.py draw.py gmath.py
+	python3 main.py final.mdl
 
 clean:
 	rm -rf __pycache__
