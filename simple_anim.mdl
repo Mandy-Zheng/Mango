@@ -1,8 +1,8 @@
-frames 5
+frames 100
 basename roller
 push
 move 0 250 0
 move 500 0 0 roll
 sphere 0 0 0 10
 
-vary roll 0 4 0 1 linear
+vary roll 0 99 1 0 decelerate
