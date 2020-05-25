@@ -264,13 +264,14 @@ def generate_torus( cx, cy, cz, r0, r1, step ):
     return points
 
 
-def generate_cyl(cx, cy, cz, r, step):
+def generate_cylinder_face(cx, cy, cz, r, step):
     x0 = r + cx
     y0 = cy
     i = 1
-    points=[[cx,cy,cz,1]]
+    points=[]
+    points.append([cx,cy,cz])
     while i <= step:
-        t = float(i)/step
+        t = i / float(step)
         x1 = r * math.cos(2*math.pi * t) + cx;
         y1 = r * math.sin(2*math.pi * t) + cy;
 
@@ -280,9 +281,9 @@ def generate_cyl(cx, cy, cz, r, step):
         i+= 1
     return points
 
-def add_cyl(polygons,cx, cy, cz, r, h, step):
-    top=generate_cyl(cx, cy, cz, r, step)
-    bottom=generate_cyl(cx, cy-h, cz, r, step)
+def add_cylinder(polygons,cx, cy, cz, r, h, step):
+    top=generate_cylinder_face(cx, cy, cz, r, step)
+    bottom=generate_cylinder_face(cx, cy-h, cz, r, step)
     i=1
     while i<len(top)-1:
         if(i==len(top)-2):
@@ -369,6 +370,40 @@ def add_cyl(polygons,cx, cy, cz, r, h, step):
                     top[i][2])
 
         i+=1
+
+def add_cone(polygons, cx, cy, cz, r, h, step):
+    points = generate_cone(cx, cy, cz, r, h, step)
+    for i in range(2, step + 2): #index 2 is first point in the circle
+        if i == step:
+            add_polygon(polygons,
+                        points[0][0], points[0][1], points[0][2],
+                        points[2][0], points[2][1], points[2][2],
+                        points[i][0], points[i][1], points[i][2])
+            add_polygon(polygons,
+                        points[i][0], points[i][1], points[i][2],
+                        points[2][0], points[2][1], points[2][2],
+                        points[1][0], points[1][1], points[1][2])
+        else:
+            add_polygon(polygons,
+                        points[0][0], points[0][1], points[0][2],
+                        points[i + 1][0], points[i + 1][1], points[i + 1][2]
+                        points[i][0], points[i][1], points[i][2])
+            add_polygon(polygons,
+                        points[i][0], points[i][1], points[i][2],
+                        points[i + 1][0], points[i + 1][2], points[i + 1][2],
+                        points[1][0], points[1][1], points[1][2])
+
+def generate_cone(cx, cy, cz, r, h, step):
+    points = []
+    points.append([cx, cy, cz]) #center of base
+    points.append([cx, cy + h, cz]) #the pointy part
+    for i in range(0, step):
+        rot = i / float(step)
+        x = r * math.cos(2 * math.pi * rot) + cx
+        z = r * math.sin(2 * math.pi * rot) + cz
+        points.append(x, cy, z)
+    return points
+
 
 def add_circle( points, cx, cy, cz, r, step ):
     x0 = r + cx
