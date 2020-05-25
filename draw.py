@@ -131,10 +131,7 @@ def add_torus(polygons, cx, cy, cz, r0, r1, step):
     for lat in range(0, step):
         for longt in range(0, step):
             p0 = lat * step + longt;
-            if longt == (step - 1):
-                p1 = p0 - longt;
-            else:
-                p1 = p0 + 1;
+            p1 = p0 + 1 if longt != (step - 1) else p0 - longt
             p2 = (p1 + step) % (step * step);
             p3 = (p0 + step) % (step * step);
             add_polygon(polygons, points[p0][0], points[p0][1], points[p0][2],
@@ -161,32 +158,19 @@ def add_cylinder(polygons,cx, cy, cz, r, h, step):
     top = generate_cylinder_face(cx, cy, cz, r, step)
     bottom = generate_cylinder_face(cx, cy - h, cz, r, step)
     for i in range(1, step + 1):
-        if i == step:
-            add_polygon(polygons, top[0][0], top[0][1], top[0][2],
-                        top[1][0], top[1][1], top[1][2],
-                        top[i][0], top[i][1], top[i][2])
-            add_polygon(polygons, bottom[0][0], bottom[0][1], bottom[0][2],
-                        bottom[i][0], bottom[i][1], bottom[i][2],
-                        bottom[1][0], bottom[1][1], bottom[1][2])
-            add_polygon(polygons, top[i][0], top[i][1], top[i][2],
-                        bottom[1][0], bottom[1][1], bottom[1][2],
-                        bottom[i][0], bottom[i][1], bottom[i][2])
-            add_polygon(polygons, bottom[1][0], bottom[1][1], bottom[1][2],
-                        top[i][0], top[i][1], top[i][2],
-                        top[1][0], top[1][1], top[1][2])
-        else:
-            add_polygon(polygons, top[0][0], top[0][1], top[0][2],
-                        top[i + 1][0], top[i + 1][1], top[i + 1][2],
-                        top[i][0], top[i][1], top[i][2])
-            add_polygon(polygons, bottom[0][0], bottom[0][1], bottom[0][2],
-                        bottom[i][0], bottom[i][1], bottom[i][2],
-                        bottom[i + 1][0], bottom[i + 1][1], bottom[i + 1][2])
-            add_polygon(polygons, top[i][0], top[i][1], top[i][2],
-                        bottom[i + 1][0], bottom[i + 1][1], bottom[i + 1][2],
-                        bottom[i][0], bottom[i][1], bottom[i][2])
-            add_polygon(polygons, bottom[i + 1][0], bottom[i + 1][1], bottom[i + 1][2],
-                        top[i][0], top[i][1], top[i][2],
-                        top[i + 1][0], top[i + 1][1], top[i + 1][2])
+        next = i % step + 1
+        add_polygon(polygons, top[0][0], top[0][1], top[0][2],
+                    top[next][0], top[next][1], top[next][2],
+                    top[i][0], top[i][1], top[i][2])
+        add_polygon(polygons, bottom[0][0], bottom[0][1], bottom[0][2],
+                    bottom[i][0], bottom[i][1], bottom[i][2],
+                    bottom[next][0], bottom[next][1], bottom[next][2])
+        add_polygon(polygons, top[i][0], top[i][1], top[i][2],
+                    bottom[next][0], bottom[next][1], bottom[next][2],
+                    bottom[i][0], bottom[i][1], bottom[i][2])
+        add_polygon(polygons, bottom[next][0], bottom[next][1], bottom[next][2],
+                    top[i][0], top[i][1], top[i][2],
+                    top[next][0], top[next][1], top[next][2])
 
 def generate_cylinder_face(cx, cy, cz, r, step): #circle gets made in other direction!
     points = []
@@ -201,20 +185,13 @@ def generate_cylinder_face(cx, cy, cz, r, step): #circle gets made in other dire
 def add_cone(polygons, cx, cy, cz, r, h, step):
     points = generate_cone(cx, cy, cz, r, h, step)
     for i in range(2, step + 2): #index 2 is first point in the circle
-        if i == step + 1:
-            add_polygon(polygons, points[0][0], points[0][1], points[0][2],
-                        points[i][0], points[i][1], points[i][2],
-                        points[2][0], points[2][1], points[2][2])
-            add_polygon(polygons, points[1][0], points[1][1], points[1][2],
-                        points[2][0], points[2][1], points[2][2],
-                        points[i][0], points[i][1], points[i][2])
-        else:
-            add_polygon(polygons, points[0][0], points[0][1], points[0][2],
-                        points[i][0], points[i][1], points[i][2],
-                        points[i + 1][0], points[i + 1][1], points[i + 1][2])
-            add_polygon(polygons, points[1][0], points[1][1], points[1][2],
-                        points[i + 1][0], points[i + 1][1], points[i + 1][2],
-                        points[i][0], points[i][1], points[i][2])
+        next = (i - 1) % step + 2
+        add_polygon(polygons, points[0][0], points[0][1], points[0][2],
+                    points[i][0], points[i][1], points[i][2],
+                    points[next][0], points[next][1], points[next][2])
+        add_polygon(polygons, points[1][0], points[1][1], points[1][2],
+                    points[next][0], points[next][1], points[next][2],
+                    points[i][0], points[i][1], points[i][2])
 
 def generate_cone(cx, cy, cz, r, h, step): #circle gets made in other direction!
     points = []
