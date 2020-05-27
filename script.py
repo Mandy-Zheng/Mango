@@ -58,6 +58,8 @@ def second_pass(commands, num_frames):
                         frames[start][knob] = value1
                         start += 1
                         value1 = value1 + (num_frames - start) * dx
+                elif args[4] == "parabolic":
+                    dx = 0
     return frames
 
 
