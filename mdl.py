@@ -432,3 +432,22 @@ def parseFile(filename):
         return result
     except IOError:
         return ()
+
+def objParse(filename):
+    f = open(filename, "r")
+    points = []
+    order = []
+    for line in f.readlines():
+        if line[0]=="v":
+            line=line[1:].strip().split()
+            if len(line) == 3:
+                line.append(1.0)
+            for x in range(4):
+                line[x]=float(line[x])
+            points.append(line)
+        elif line[0]=="f":
+            line=line[1:].strip().split()
+            for x in range(len(line)):
+                line[x]=int(line[x])-1
+            order.append(line)
+    return (points, order)

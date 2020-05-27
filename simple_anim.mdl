@@ -1,8 +1,8 @@
-frames 100
-basename roller
+constants brass 0.329412 0.780392 0.992157 0.223529 0.568627 0.941176 0.027451 0.113725 0.807843
+basename airplane
 push
-move 0 250 0
-move 500 0 0 roll
-sphere 0 0 0 10
-
-vary roll 0 99 1 0 decelerate
+move 250 200 0
+rotate y -45
+rotate x 45
+scale 25 25 25
+mesh brass :happy

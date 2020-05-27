@@ -190,6 +190,15 @@ def run(filename):
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
+            elif c == 'mesh':
+                if command['constants']:
+                    reflect = command['constants']
+                (points, order) = mdl.objParse(command['cs']+".obj")
+                makeMesh(tmp,points,order)
+                matrix_mult( stack[-1], tmp )
+                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                tmp=[]
+                reflect = '.white'
             elif c == 'line':
                 add_edge(tmp,
                          args[0], args[1], args[2], args[3], args[4], args[5])

@@ -97,7 +97,17 @@ def draw_polygons( polygons, screen, zbuffer, view, ambient, light, symbols, ref
             scanline_convert(polygons, point, screen, zbuffer, color)
         point+= 3
 
-
+def makeMesh(polygons,points,order):
+    for list in order:
+        if(len(list)==3):
+            add_polygon(polygons,points[list[0]][0],points[list[0]][1],points[list[0]][2],
+                                points[list[1]][0],points[list[1]][1],points[list[1]][2],
+                                points[list[2]][0],points[list[2]][1],points[list[2]][2])
+        else:
+            for x in range(len(list)-2):
+                add_polygon(polygons,points[list[x]][0],points[list[x]][1],points[list[x]][2],
+                                    points[list[x+1]][0],points[list[x+1]][1],points[list[x+1]][2],
+                                    points[list[len(list)-1]][0],points[list[len(list)-1]][1],points[list[len(list)-1]][2])
 def add_box( polygons, x, y, z, width, height, depth ):
     x1 = x + width
     y1 = y - height
