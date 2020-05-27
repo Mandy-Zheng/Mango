@@ -2,19 +2,6 @@ from display import *
 from matrix import *
 from gmath import *
 
-def makeMesh(polygons,points,order):
-    for list in order:
-        if(len(list)==3):
-            add_polygon(polygons,points[list[0]][0],points[list[0]][1],points[list[0]][2],
-                                points[list[1]][0],points[list[1]][1],points[list[1]][2],
-                                points[list[2]][0],points[list[2]][1],points[list[2]][2])
-        else:
-            for x in range(len(list)-2):
-                add_polygon(polygons,points[list[x]][0],points[list[x]][1],points[list[x]][2],
-                                    points[list[x+1]][0],points[list[x+1]][1],points[list[x+1]][2],
-                                    points[list[len(list)-1]][0],points[list[len(list)-1]][1],points[list[len(list)-1]][2])
-
-
 def add_box(polygons, x, y, z, width, height, depth):
     x1 = x + width
     y1 = y - height
@@ -171,6 +158,14 @@ def add_curve(points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type):
 
 #------------------------------------------------------------------------------#
 
+def makeMesh(polygons, points, order):
+    for list in order:
+        for i in range(len(list) - 2):
+            last = len(list) - 1
+            add_polygon(polygons, points[list[i]][0], points[list[i]][1], points[list[i]][2],
+                                  points[list[i + 1]][0], points[list[i + 1]][1], points[list[i + 1]][2],
+                                  points[list[last]][0], points[list[last]][1], points[list[last]][2])
+
 def add_scanline(x0, z0, x1, z1, y, screen, zbuffer, color):
     if x0 > x1:
         tx = x0
@@ -196,7 +191,7 @@ def scanline_convert(polygons, i, screen, zbuffer, color):
               (polygons[i + 1][0], polygons[i + 1][1], polygons[i + 1][2]),
               (polygons[i + 2][0], polygons[i + 2][1], polygons[i + 2][2])]
 
-    points.sort(key = lambda x: x[1])
+    points.sort(key = lambda x:x[1])
     x0 = points[BOT][0]
     z0 = points[BOT][2]
     x1 = points[BOT][0]
