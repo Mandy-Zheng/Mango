@@ -18,7 +18,7 @@ reserved = {"x":"XYZ", "y":"XYZ", "z":"XYZ",
             "set":"SET", "move":"MOVE", "scale":"SCALE", "rotate":"ROTATE",
             "basename":"BASENAME", "save_knobs":"SAVE_KNOBS", "setknobs":"SET_KNOBS", "tween":"TWEEN", "frames":"FRAMES",
             "vary":"VARY", "linear":"VARY_TYPE", "accelerate":"VARY_TYPE", "decelerate":"VARY_TYPE",
-            "parabolic":"VARY_TYPE",
+            "pause":"VARY_TYPE",
             "push":"PUSH", "pop":"POP", "save":"SAVE", "generate_rayfiles":"GENERATE_RAYFILES",
             "focal":"FOCAL", "display":"DISPLAY", "web":"WEB"}
 t_ignore = " \t"
@@ -390,6 +390,6 @@ def objParse(filename):
         elif line[0] == "f":
             line = line[1:].strip().split()
             for x in range(len(line)):
-                line[x] = int(line[x])-1
+                line[x] = int(line[x]) - 1
             order.append(line)
     return (points, order)

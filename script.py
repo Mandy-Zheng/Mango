@@ -7,7 +7,6 @@ def first_pass(commands):
     name = ''
     num_frames = 1
     vary = False;
-
     for command in commands: #Checks commands array for animation commands (frames, basename, vary)
         c = command['op']
         args = command['args']
@@ -37,29 +36,30 @@ def second_pass(commands, num_frames):
                 value2 = args[3]
                 knob = command['knob']
                 if args[4] == "linear":
-                    dx = (value2 - value1) / (end - start)
-                    while start <= end:
-                        frames[start][knob] = value1
-                        value1 += dx
-                        start += 1
+                    v = (1.0 * value2 - value1) / (end - start)
+                    for i in range(start, end + 1):
+                        frames[i][knob] = v * (i - start) + value1
                 elif args[4] == "accelerate":
-                    dx = (1.0 / end) / ((end // 2) + 1)
-                    if value2 < value1:
-                        dx = -1 * dx
-                    while start <= end:
-                        frames[start][knob] = value1
-                        start += 1
-                        value1 = value1 + start * dx
+                    a = 2 * (1.0 * value2 - value1) / (end - start) ** 2
+                    for i in range(start, end + 1):
+                        frames[i][knob] = 0.5 * a * (i - start) ** 2 + value1
                 elif args[4] == "decelerate":
-                    dx = (1.0 / end) / ((end // 2) + 1)
-                    if value2 < value1:
-                        dx = -1 * dx
-                    while start <= end:
-                        frames[start][knob] = value1
-                        start += 1
-                        value1 = value1 + (num_frames - start) * dx
-                elif args[4] == "parabolic":
-                    dx = 0
+                    a = -2 * (1.0 * value2 - value1) / (end - start) ** 2
+                    vi = -1 * a * (end - start)
+                    for i in range(start, end + 1):
+                        frames[i][knob] = 0.5 * a * (i - start) ** 2 + vi * (i - start) + value1
+                elif args[4] == "pause":
+                    mid = (start + end) // 2
+                    avg = (value1 + value2) / 2.0
+                    a = -2 * (1.0 * avg - value1) / (mid - start) ** 2
+                    vi = -1 * a * (mid - start)
+                    for i in range(start, end + 1):
+                        frames[i][knob] = 0.5 * a * (i - start) ** 2 + vi * (i - start) + value1
+                        if i == mid:
+                            a *= -1
+                            vi = 0
+                            value1 = avg
+                            start = mid if (start - end) % 2 == 0 else mid + 1
     return frames
 
 

@@ -9,9 +9,13 @@ constants bronze 0.2125 0.714 0.393548 0.1275 0.4284 0.271906 0.054 0.18144 0.16
 constants silver 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273
 constants green_rubber 0.0 0.4 0.04 0.05 0.5 0.7 0.0 0.4 0.04
 basename final
+frames 40
 
-move 250 150 0
-rotate x 20
-rotate y -20
-scale 10 10 10
-mesh silver :happy
+push
+move 0 250 0
+move 500 0 0 fast
+move 0 200 0 regular
+sphere 0 0 0 20
+vary fast 0 39 0 1 pause
+vary regular 0 19 0 1 linear
+vary regular 20 39 1 0 linear
