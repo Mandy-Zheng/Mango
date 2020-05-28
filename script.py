@@ -61,11 +61,13 @@ def second_pass(commands, num_frames):
                             value1 = avg
                             start = mid if (start - end) % 2 == 0 else mid + 1
                 elif args[4] == "cosine":
-                    a = value2 - value1
-                    t = end - start
                     for i in range(start, end + 1):
-                        ratio = math.cos(math.pi * (i - start) / t)
-                        frames[i][knob] = a * ((ratio - 1) / -2) + value1
+                        ratio = math.cos(math.pi * (i - start) / (end - start))
+                        frames[i][knob] = (value2 - value1) * ((ratio - 1) / -2) + value1
+                elif args[4] == "sine":
+                    for i in range(start, end + 1):
+                        ratio = math.sin(math.pi * (i - start) / (end - start))
+                        frames[i][knob] = (value2 - value1) * ratio + value1
                         print(str(frames[i][knob]))
     return frames
 
