@@ -14,11 +14,11 @@ reserved = {"x":"XYZ", "y":"XYZ", "z":"XYZ",
             "save_coord_system":"SAVE_COORDS", "camera":"CAMERA", "ambient":"AMBIENT",
             "torus":"TORUS", "sphere":"SPHERE", "box":"BOX", "cylinder":"CYLINDER", "cone":"CONE", "line":"LINE",
             "mesh":"MESH", "texture":"TEXTURE", "shading":"SHADING",
-            "phong":"SHADING_TYPE", "flat":"SHADING_TYPE","gouraud":"SHADING_TYPE", "raytrace":"SHADING_TYPE", "wireframe":"SHADING_TYPE",
+            "phong":"SHADING_TYPE", "flat":"SHADING_TYPE", "gouraud":"SHADING_TYPE", "raytrace":"SHADING_TYPE", "wireframe":"SHADING_TYPE",
             "set":"SET", "move":"MOVE", "scale":"SCALE", "rotate":"ROTATE",
             "basename":"BASENAME", "save_knobs":"SAVE_KNOBS", "setknobs":"SET_KNOBS", "tween":"TWEEN", "frames":"FRAMES",
             "vary":"VARY", "linear":"VARY_TYPE", "accelerate":"VARY_TYPE", "decelerate":"VARY_TYPE",
-            "pause":"VARY_TYPE", "sine":"VARY_TYPE,",
+            "pause":"VARY_TYPE", "cosine":"VARY_TYPE",
             "push":"PUSH", "pop":"POP", "save":"SAVE", "generate_rayfiles":"GENERATE_RAYFILES",
             "focal":"FOCAL", "display":"DISPLAY", "web":"WEB"}
 t_ignore = " \t"

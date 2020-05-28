@@ -1,4 +1,4 @@
-import mdl
+import mdl, math
 from display import *
 from matrix import *
 from draw import *
@@ -60,8 +60,13 @@ def second_pass(commands, num_frames):
                             vi = 0
                             value1 = avg
                             start = mid if (start - end) % 2 == 0 else mid + 1
-                elif args[4] == "sine":
-                    dx = 0
+                elif args[4] == "cosine":
+                    a = value2 - value1
+                    t = end - start
+                    for i in range(start, end + 1):
+                        ratio = math.cos(math.pi * (i - start) / t)
+                        frames[i][knob] = a * ((ratio - 1) / -2) + value1
+                        print(str(frames[i][knob]))
     return frames
 
 
