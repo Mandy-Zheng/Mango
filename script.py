@@ -60,6 +60,8 @@ def second_pass(commands, num_frames):
                             vi = 0
                             value1 = avg
                             start = mid if (start - end) % 2 == 0 else mid + 1
+                elif args[4] == "sine":
+                    dx = 0
     return frames
 
 
