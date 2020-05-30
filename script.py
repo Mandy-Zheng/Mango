@@ -81,7 +81,7 @@ def second_pass(commands, num_frames):
                         p = (frac + t - lower) / (upper - lower)
                         a = -2.0 * (value2 - value1) / (0.5) ** 2
                         vi = a / -2.0
-                        frames[i][knob] = 1 - (0.5 * a * p ** 2 + vi * p) * r ** num
+                        frames[i][knob] = 1 - (0.5 * a * p ** 2 + vi * p) * r ** (2 * num)
                         print(str(frames[i][knob]))
     return frames
 
