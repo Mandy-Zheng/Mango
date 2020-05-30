@@ -18,7 +18,7 @@ reserved = {"x":"XYZ", "y":"XYZ", "z":"XYZ",
             "set":"SET", "move":"MOVE", "scale":"SCALE", "rotate":"ROTATE",
             "basename":"BASENAME", "save_knobs":"SAVE_KNOBS", "setknobs":"SET_KNOBS", "tween":"TWEEN", "frames":"FRAMES",
             "vary":"VARY", "linear":"VARY_TYPE", "accelerate":"VARY_TYPE", "decelerate":"VARY_TYPE",
-            "pause":"VARY_TYPE", "cosine":"VARY_TYPE", "sine":"VARY_TYPE",
+            "pause":"VARY_TYPE", "cosine":"VARY_TYPE", "sine":"VARY_TYPE", "bouncing":"VARY_TYPE",
             "push":"PUSH", "pop":"POP", "save":"SAVE", "generate_rayfiles":"GENERATE_RAYFILES",
             "focal":"FOCAL", "display":"DISPLAY", "web":"WEB"}
 t_ignore = " \t"
@@ -220,7 +220,7 @@ def p_command_move(p):
 
 def p_command_scale(p):
     """command : SCALE NUMBER NUMBER NUMBER SYMBOL
-                 | SCALE NUMBER NUMBER NUMBER"""
+               | SCALE NUMBER NUMBER NUMBER"""
     cmd = {'op':p[1], 'args':p[2:5], 'knob':None}
     if len(p) == 6:
         cmd['knob'] = p[5]
@@ -229,7 +229,7 @@ def p_command_scale(p):
 
 def p_command_rotate(p):
     """command : ROTATE XYZ NUMBER SYMBOL
-                 | ROTATE XYZ NUMBER"""
+               | ROTATE XYZ NUMBER"""
     cmd = {'op':p[1], 'args':p[2:4], 'knob':None}
     if len(p) == 5:
         cmd['knob'] = p[4]
@@ -247,7 +247,9 @@ def p_command_basename(p):
     commands.append(cmd)
 
 def p_command_vary(p):
-    """command : VARY SYMBOL NUMBER NUMBER NUMBER NUMBER VARY_TYPE"""
+    """command : VARY SYMBOL NUMBER NUMBER NUMBER NUMBER VARY_TYPE
+               | VARY SYMBOL NUMBER NUMBER NUMBER NUMBER VARY_TYPE NUMBER
+               | VARY SYMBOL NUMBER NUMBER NUMBER NUMBER VARY_TYPE NUMBER NUMBER"""
     cmd = {'op':p[1], 'args':p[3:], 'knob':p[2]}
     symbols[p[2]] = ['knob', 0]
     commands.append(cmd)

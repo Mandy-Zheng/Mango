@@ -68,7 +68,8 @@ def second_pass(commands, num_frames):
                     for i in range(start, end + 1):
                         ratio = math.sin(math.pi * (i - start) / (end - start))
                         frames[i][knob] = (value2 - value1) * ratio + value1
-                        print(str(frames[i][knob]))
+                elif args[4] == "bouncing":
+                    dx = 0
     return frames
 
 
