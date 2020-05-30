@@ -69,11 +69,32 @@ def second_pass(commands, num_frames):
                         ratio = math.sin(math.pi * (i - start) / (end - start))
                         frames[i][knob] = (value2 - value1) * ratio + value1
                 elif args[4] == "bouncing":
-                    bounces = args[5] if args[5] else 1
-                    decay = args[6] if args[6] else 0.5
-                    a = args[7] if args[7] else 9.80665
+                    bounces = int(args[5]) if len(args) > 5 else 1 #bounce of 0 means that it just drops
+                    if bounces < 0:
+                        print("Compiler Error: Expected number of bounces to be a positive integer")
+                        exit()
+                    decay = args[6] if len(args) > 6 else 0.5 #the decay of height
+                    a = args[7] if len(args) > 7 else 9.80665
+                    for i in range(start, end + 1):
+                        (r, t, k) = bounce_info(bounces, decay, a, i, start, end, value1, value2)
+                        print(str(r) + ", " + str(t) + ", " + str(k))
     return frames
 
+def bounce_info(bounces, decay, a, i, start, end, value1, value2):
+    r = math.sqrt(decay)
+    t = (value2 - value1) / (1 + (2 * r * (1 - r ** bounces)) / (1 - r))
+    frac = (i - start) / (end - start) + t #t is amount of time for drop until first bounce
+    cur = 2 * t
+    k = 1
+    run = True
+    while run:
+        if cur > frac:
+            run = False
+            k = k - 1 if k <= bounces + 1 else k - 2
+        else:
+            cur += 2 * t * (r ** k)
+            k += 1
+    return (r, t, k)
 
 def run(filename): #runs an mdl script
     p = mdl.parseFile(filename)
