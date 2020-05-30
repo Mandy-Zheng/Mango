@@ -74,27 +74,28 @@ def second_pass(commands, num_frames):
                         print("Compiler Error: Expected number of bounces to be a positive integer")
                         exit()
                     decay = args[6] if len(args) > 6 else 0.5 #the decay of height
-                    a = args[7] if len(args) > 7 else 9.80665
+                    a = -1 * args[7] if len(args) > 7 else -9.80665
                     for i in range(start, end + 1):
-                        (r, t, k) = bounce_info(bounces, decay, a, i, start, end, value1, value2)
-                        print(str(r) + ", " + str(t) + ", " + str(k))
+                        (r, t, frac, k) = bounce_info(bounces, decay, a, i, start, end, value1, value2)
+                        
+
     return frames
 
 def bounce_info(bounces, decay, a, i, start, end, value1, value2):
     r = math.sqrt(decay)
     t = (value2 - value1) / (1 + (2 * r * (1 - r ** bounces)) / (1 - r))
-    frac = (i - start) / (end - start) + t #t is amount of time for drop until first bounce
-    cur = 2 * t
-    k = 1
+    frac = (i - start) / (end - start) #t is amount of time for drop until first bounce
+    cur = t
+    num = 1
     run = True
     while run:
         if cur > frac:
             run = False
-            k = k - 1 if k <= bounces + 1 else k - 2
+            num = num - 1 if num <= bounces + 1 else num - 2
         else:
-            cur += 2 * t * (r ** k)
-            k += 1
-    return (r, t, k)
+            cur += 2 * t * (r ** num)
+            num += 1
+    return (r, t, frac, num)
 
 def run(filename): #runs an mdl script
     p = mdl.parseFile(filename)
