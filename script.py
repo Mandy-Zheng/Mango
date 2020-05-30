@@ -76,9 +76,11 @@ def second_pass(commands, num_frames):
                     decay = args[6] if len(args) > 6 else 0.5 #the decay of height
                     a = -1 * args[7] if len(args) > 7 else -9.80665
                     for i in range(start, end + 1):
-                        (r, t, frac, k) = bounce_info(bounces, decay, a, i, start, end, value1, value2)
-                        
-
+                        (r, t, frac, num) = bounce_info(bounces, decay, a, i, start, end, value1, value2)
+                        lower = 2 * t * (1 - r ** num) / (1 - r)
+                        upper = lower + 2 * t * r ** num
+                        p = (frac + t - lower) / (upper - lower)
+                        print(str(i) + ", " + str(p))
     return frames
 
 def bounce_info(bounces, decay, a, i, start, end, value1, value2):
@@ -86,7 +88,7 @@ def bounce_info(bounces, decay, a, i, start, end, value1, value2):
     t = (value2 - value1) / (1 + (2 * r * (1 - r ** bounces)) / (1 - r))
     frac = (i - start) / (end - start) #t is amount of time for drop until first bounce
     cur = t
-    num = 1
+    num = 1 #what bounce number it is on right now
     run = True
     while run:
         if cur > frac:
