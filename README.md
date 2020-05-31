@@ -7,9 +7,8 @@
     - Adding nonlinear animations
 - Mesh
     - Parsing Obj file
+- light
 
 #### New MDL commands
 - Cylinder Shape
 - Cone Shape
-- Vanishing Point
-- Vanishing Line
