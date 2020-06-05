@@ -9,14 +9,21 @@ constants bronze 0.2125 0.714 0.393548 0.1275 0.4284 0.271906 0.054 0.18144 0.16
 constants silver 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273
 constants green_rubber 0.0 0.4 0.04 0.05 0.5 0.7 0.0 0.4 0.04
 basename final0
-frames 1
+frames 40
+vary jump 0 39 0 1 bouncing 3
+vary forward 0 39 0 1 linear
 
 push
-move 250 250 0
-scale 0.5 0.5 0.5
+move 100 300 0
+rotate x 20
+rotate y 40
+scale 0.25 0.25 0.25
+box -500 -500 2000 1000 100 2000
 push
 //B
-move -440 500 0
+move 0 -940 0 jump
+move 0 0 1800 forward
+move -440 600 0
 cylinder 0 0 0 40 160
 push
 rotate z -90
@@ -75,6 +82,4 @@ cylinder -20 0 0 20 100
 cylinder -80 0 0 20 100
 cylinder -140 0 0 20 100
 pop
-//this is now where center is (250, 250, 0)
-
 pop
