@@ -12,24 +12,36 @@ basename final4
 frames 40
 
 push
-move 350 250 -200
+move 300 250 -400
 rotate x 30
 rotate y -30
 push
+move 200 0 0
+move -200 0 0 in
+move -200 0 0 out
 move 0 0 200 cos
-move -125 0 0 sin1
-move -125 0 0
+move -100 0 0 sin1
 move 100 0 0 sin2
 rotate y 360 twist
 rotate z -90
 rotate y -90
+box 0 0 0 10 100 10
 mesh :car
 
-
-vary twist 0 39 0 1 linear
-vary cos 0 19 0 1 cosine
-vary cos 20 39 1 0 cosine
-vary sin1 0 19 0 1 sine
+vary in 0 6 0 1 linear
+vary in 7 39 1 1 linear
+vary out 0 32 0 0 linear
+vary out 33 39 0 1 linear
+vary twist 0 6 0 0 linear
+vary twist 7 32 0 1 linear
+vary twist 33 39 0 0 linear
+vary cos 0 6 0 0 cosine
+vary cos 7 19 0 1 cosine
+vary cos 20 32 1 0 cosine
+vary cos 33 39 0 0 cosine
+vary sin1 0 6 0 0 sine
+vary sin1 7 19 0 1 sine
 vary sin1 20 39 0 0 sine
 vary sin2 0 19 0 0 sine
-vary sin2 20 39 0 1 sine
+vary sin2 20 32 0 1 sine
+vary sin2 33 39 0 0 sine
