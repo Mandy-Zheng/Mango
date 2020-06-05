@@ -12,12 +12,11 @@ basename final0
 frames 1
 
 push
-move -200 0 0
-
-//BOUNCE
+move 250 250 0
+scale 0.5 0.5 0.5
 push
 //B
-move 0 500 0
+move -440 500 0
 cylinder 0 0 0 40 160
 push
 rotate z -90
@@ -60,5 +59,22 @@ cylinder 0 0 0 20 179
 pop
 pop
 //C
+push
+move 675 0 0
+cylinder 0 0 0 20 160
+rotate z 90
+cylinder -20 0 0 20 100
+cylinder -140 0 0 20 100
+pop
+//E
+push
+move 825 0 0
+cylinder 0 0 0 20 160
+rotate z 90
+cylinder -20 0 0 20 100
+cylinder -80 0 0 20 100
+cylinder -140 0 0 20 100
+pop
+//this is now where center is (250, 250, 0)
 
 pop
