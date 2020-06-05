@@ -1,4 +1,6 @@
 scale 0.45 0.45 0.45
+rotate x 20
+rotate y 30
 push
 //T
 move 100 300 0
