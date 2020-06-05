@@ -1,4 +1,5 @@
 frames 20
+push
 move 450 50 0
 move -250 100 0 zoom
 scale 5 5 5 bigger
