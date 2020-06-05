@@ -1,2 +1,5 @@
-move 250 250 250
+move 250 250 0
+rotate x -70
+rotate z 30
+scale 0.25 0.25 0.25
 mesh :boat
