@@ -82,7 +82,6 @@ def second_pass(commands, num_frames):
                         a = -2.0 * (value2 - value1) / (0.5) ** 2
                         vi = a / -2.0
                         frames[i][knob] = 1 - (0.5 * a * p ** 2 + vi * p) * r ** (2 * num)
-                        print(str(frames[i][knob]))
     return frames
 
 def bounce_info(bounces, decay, i, start, end, value1, value2):
@@ -174,8 +173,8 @@ def run(filename): #runs an mdl script
                 tmp = []
                 reflect = '.white'
             elif c == 'mesh':
-                if command['constants']:
-                    reflect = command['constants']
+                if len(command['constants'])>1:
+                    reflect = command['constants'][1]
                 (points, order) = mdl.objParse(command['cs'] + ".obj")
                 makeMesh(tmp, points, order)
                 matrix_mult(stack[-1], tmp)

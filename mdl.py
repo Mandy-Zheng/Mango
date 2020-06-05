@@ -383,7 +383,7 @@ def objParse(filename):
     points = []
     order = []
     for line in f.readlines():
-        if line[0] == "v":
+        if line[0] == "v" and line[1] == " ":
             line = line[1:].strip().split()
             if len(line) == 3:
                 line.append(1.0)
@@ -393,6 +393,6 @@ def objParse(filename):
         elif line[0] == "f":
             line = line[1:].strip().split()
             for x in range(len(line)):
-                line[x] = int(line[x]) - 1
+                line[x] = int(line[x].split("/")[0]) - 1
             order.append(line)
     return (points, order)
