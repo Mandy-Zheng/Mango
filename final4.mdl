@@ -12,7 +12,7 @@ basename final4
 frames 40
 
 push
-move 350 250 -100
+move 350 250 -200
 rotate x 30
 rotate y -30
 push
@@ -21,6 +21,8 @@ move -100 0 0 sin1
 move -100 0 0
 move 100 0 0 sin2
 rotate y 360 twist
+rotate z -90
+rotate y -90
 mesh :car
 
 
