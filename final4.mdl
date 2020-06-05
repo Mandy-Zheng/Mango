@@ -21,7 +21,7 @@ move -100 0 0 sin1
 move -100 0 0
 move 100 0 0 sin2
 rotate y 360 twist
-box 0 0 0 50 10 10
+mesh :car
 
 
 vary twist 0 39 0 1 linear
