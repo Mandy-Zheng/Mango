@@ -9,11 +9,48 @@ constants bronze 0.2125 0.714 0.393548 0.1275 0.4284 0.271906 0.054 0.18144 0.16
 constants silver 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273
 constants green_rubber 0.0 0.4 0.04 0.05 0.5 0.7 0.0 0.4 0.04
 basename final5
-frames 1
+frames 43
 
-move 250 400 0
+move 400 350 0
 rotate x 30
 rotate y -30
 scale 2 2 2
-box 0 0 0 50 5 5
-//mesh :airplane
+box -150 -130 130 300 25 100
+move -100 0 0 entry
+move 0 -100 0 descend
+move 0 0 100 cos
+move -50 0 0 sin1
+move 50 0 0 sin2
+rotate y 360 twist
+move -150 0 0 slow
+mesh :airplane
+
+vary entry 0 4 0 1 linear
+vary entry 5 42 1 1 linear
+vary descend 0 4 0 0 linear
+vary descend 5 34 0 1 linear
+vary descend 35 42 1 1 linear
+vary twist 0 4 0 0 linear
+vary twist 5 34 0 2.5 linear
+vary twist 35 42 2.5 2.5 linear
+vary slow 0 34 0 0 linear
+vary slow 35 42 0 1 decelerate
+vary cos 0 4 0 0 cosine
+vary cos 5 10 0 1 cosine
+vary cos 11 16 1 0 cosine
+vary cos 17 22 0 1 cosine
+vary cos 23 28 1 0 cosine
+vary cos 29 34 0 1 cosine
+vary cos 35 42 1 1 cosine
+vary sin1 0 4 0 0 sine
+vary sin1 5 10 0 1 sine
+vary sin1 11 16 0 0 sine
+vary sin1 17 22 0 1 sine
+vary sin1 23 28 0 0 sine
+vary sin1 29 34 0 1 sine
+vary sin1 35 42 0 0 sine
+vary sin2 0 10 0 0 sine
+vary sin2 11 16 0 1 sine
+vary sin2 17 22 0 0 sine
+vary sin2 23 28 0 1 sine
+vary sin2 29 42 0 0 sine
