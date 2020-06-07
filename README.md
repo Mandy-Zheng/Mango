@@ -4,11 +4,21 @@
 
 #### Modifying MDL commands
 - Knob
-    - Adding nonlinear animations
+    - Adding 6 nonlinear animations
+        -bounce
+        -sin
+        -cos
+        -accelerate
+        -decelerate
+        -pause
 - Mesh
     - Parsing Obj file
-- light
+        *obj files should be stored obj directory*
 
 #### New MDL commands
-- Cylinder Shape
-- Cone Shape
+- Cylinder Shape (x,y,z,radius,height)
+    *cylinder based on center of top circle*
+- Cone Shape (x,y,z,radius,height) 
+    *cone based on center of circle*
+
+*mdl files should be stored in mdl directory*
