@@ -173,8 +173,8 @@ def run(filename): #runs an mdl script
                 tmp = []
                 reflect = '.white'
             elif c == 'mesh':
-                if len(command['constants'])>1:
-                    reflect = command['constants'][1]
+                if command['constants'] and command['constants']!=":":
+                    reflect = command['constants']
                 (points, order) = mdl.objParse(command['cs'] + ".obj")
                 makeMesh(tmp, points, order)
                 matrix_mult(stack[-1], tmp)
