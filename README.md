@@ -5,12 +5,12 @@
 #### Modifying MDL commands
 - Knob
     - Adding 6 nonlinear animations (in addition to linear)
-        -bouncing
-        -sin
-        -cos
-        -accelerate
-        -decelerate
-        -pause
+        - bouncing
+        - sin
+        - cos
+        - accelerate
+        - decelerate
+        - pause
         **place vary type at the end of vary type**
         **two optional inputs for bounce command: vary varname frame_begin frame_end 0 1 bouncing <num_bounces> <decay>**
 - Mesh
