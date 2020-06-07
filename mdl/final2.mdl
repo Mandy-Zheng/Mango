@@ -12,13 +12,17 @@ constants shiny_red 0.2392156863 0.8 1.0 0.1215686275 0 1.0 0.0196078431 0 1.0
 basename final2
 frames 20
 
-move 250 250 0
-rotate x 20
-rotate y 225
-move 250 175 0
-move -400 -250 0 vroom
-scale 8 8 8 vroom
-sphere 0 0 0 10
+push
+move 0 300 0
+rotate x 30
+rotate y -35
+move 800 0 0 vroom
+scale 5 5 5 enlarge
+push
+rotate y 270
+scale 4 4 4
 mesh shiny_red :motorcycle
+pop
 
 vary vroom 0 19 0 1 accelerate
+vary enlarge 0 19 0.1 1 accelerate
