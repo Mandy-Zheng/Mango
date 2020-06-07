@@ -12,7 +12,7 @@
         -decelerate
         -pause
         ###### place vary type at the end of vary type
-        ###### two optional things for bounce command: vary varname framebegin frameend 0 1 bouncing <num_bounces> <decay>
+        ###### two optional things for bounce command: vary varname frame_begin frame_end 0 1 bouncing <num_bounces> <decay>
 - Mesh
     - Parsing Obj file
         ###### obj files should be stored obj directory
