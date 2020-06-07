@@ -11,16 +11,16 @@
         -accelerate
         -decelerate
         -pause
-        ###### place vary type at the end of vary type
-        ###### two optional things for bounce command: vary varname frame_begin frame_end 0 1 bouncing <num_bounces> <decay>
+        **place vary type at the end of vary type**
+        **two optional inputs for bounce command: vary varname frame_begin frame_end 0 1 bouncing <num_bounces> <decay>**
 - Mesh
     - Parsing Obj file
-        ###### obj files should be stored obj directory
+        **obj files should be stored obj directory**
 
 #### New MDL commands
 - Cylinder Shape (x,y,z,radius,height)
-    ###### cylinder based on center of top circle
-- Cone Shape (x,y,z,radius,height) 
-    ###### cone based on center of circle
+    **cylinder based on center of top circle**
+- Cone Shape (x,y,z,radius,height)
+    **cone based on center of circle**
 
-###### *mdl files should be stored in mdl directory*
+**mdl files should be stored in mdl directory**
