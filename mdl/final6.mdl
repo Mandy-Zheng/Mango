@@ -1,86 +1,78 @@
-constants brass 0.329412 0.780392 0.992157 0.223529 0.568627 0.941176 0.027451 0.113725 0.807843
-constants shiny_purple 0.2 0.3 0.7 0.0 0.0 0.0 0.0 0.3 0.7
-constants matte_purple 0.2 0.7 0.3 0.0 0.0 0.0 0.0 0.7 0.3
-constants shiny_purple 0.3 0.2 0.8 0.3 0.0 0.0 0.3 0.2 0.8
-constants shiny_teal 0.3 0.0 0.0 0.3 0.2 0.8 0.3 0.2 0.8
-constants dull_yellow 0.3 0.8 0.2 0.3 0.8 0.2 0 0 0
-constants brass 0.329412 0.780392 0.992157 0.223529 0.568627 0.941176 0.027451 0.113725 0.807843
-constants bronze 0.2125 0.714 0.393548 0.1275 0.4284 0.271906 0.054 0.18144 0.166721
-constants silver 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273
-constants green_rubber 0.0 0.4 0.04 0.05 0.5 0.7 0.0 0.4 0.04
+constants graphite 0.360784313725 0.290196078431 1.0 0.360784313725 0.290196078431 1.0 0.360784313725 0.290196078431 1.0
 basename final6
 frames 20
 
 push
-move 0 440 0
+move 50 440 0
 move 0 -600 0 ending
 scale 0.45 0.45 0.45
 rotate x 30
+rotate y 30
 push
 //T
 move 100 300 0
-cylinder 0 0 0 15 150
+cylinder graphite 0 0 0 15 150
 pop
 push
 move 25 315 0
 rotate z 90
-cylinder 0 0 0 15 150
+cylinder graphite 0 0 0 15 150
 pop
 push
 //H
 move 225 330 0
-cylinder 0 0 0 15 180
+cylinder graphite 0 0 0 15 180
 move 15 -90 0
 rotate z 90
-cylinder 0 0 0 15 90
+cylinder graphite 0 0 0 15 90
 move 90 -90 0
 rotate z -90
-cylinder 0 0 0 15 180
+cylinder graphite 0 0 0 15 180
 pop
 push
 //E
 move 395 330 0
-cylinder 0 0 0 15 180
+cylinder graphite 0 0 0 15 180
 move 15 -15 0
 rotate z -90
-cone 0 0 0 15 90
+cone graphite 0 0 0 15 90
 move 75 0 0
-cone 0 0 0 15 90
+cone graphite 0 0 0 15 90
 move 75 0 0
-cone 0 0 0 15 90
+cone graphite 0 0 0 15 90
 pop
 push
 //E
 move 615 330 0
-cylinder 0 0 0 15 180
+cylinder graphite 0 0 0 15 180
 move 15 -15 0
 rotate z -90
-cone 0 0 0 15 90
+cone graphite 0 0 0 15 90
 move 75 0 0
-cone 0 0 0 15 90
+cone graphite 0 0 0 15 90
 move 75 0 0
-cone 0 0 0 15 90
+cone graphite 0 0 0 15 90
 pop
 push
 //N
 move 770 330 0
-cylinder 0 0 0 15 180
+cylinder graphite 0 0 0 15 180
 move 0 -10 0
-rotate z 30
-cylinder 0 0 0 15 180
-rotate z -30
+rotate z 27
+cylinder graphite 0 0 0 15 180
+rotate z -27
 move 90 10 0
-cylinder 0 0 0 15 180
+cylinder graphite 0 0 0 15 180
 pop
 push
 //D
 move 925 330 0
-cylinder 0 0 0 15 180
+cylinder graphite 0 0 0 15 180
 rotate z 230
-cone 0 20 0 15 120
+cone graphite 0 10 0 15 130
 rotate z -230
 move 0 -180 0
 rotate z -50
-cone 0 20 0 15 120
+cone graphite 0 10 0 15 130
 
 vary ending 0 19 0 1 pause
