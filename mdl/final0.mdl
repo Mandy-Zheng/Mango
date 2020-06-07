@@ -1,13 +1,5 @@
-constants brass 0.329412 0.780392 0.992157 0.223529 0.568627 0.941176 0.027451 0.113725 0.807843
-constants shiny_purple 0.2 0.3 0.7 0.0 0.0 0.0 0.0 0.3 0.7
-constants matte_purple 0.2 0.7 0.3 0.0 0.0 0.0 0.0 0.7 0.3
-constants shiny_purple 0.3 0.2 0.8 0.3 0.0 0.0 0.3 0.2 0.8
-constants shiny_teal 0.3 0.0 0.0 0.3 0.2 0.8 0.3 0.2 0.8
-constants dull_yellow 0.3 0.8 0.2 0.3 0.8 0.2 0 0 0
-constants brass 0.329412 0.780392 0.992157 0.223529 0.568627 0.941176 0.027451 0.113725 0.807843
-constants bronze 0.2125 0.714 0.393548 0.1275 0.4284 0.271906 0.054 0.18144 0.166721
-constants silver 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273
-constants green_rubber 0.0 0.4 0.04 0.05 0.5 0.7 0.0 0.4 0.04
+constants green_rubber 0.109803 0.031372 1.0 0.078431 0.556863 1.0 0.015686 0.172549 1.0
+constants bouncy 0.0 0.0 1.0 0.188235 0.772549 1.0 0.2 0.760784 1.0
 basename final0
 frames 30
 vary jump 0 29 0 1 bouncing 4 0.75
@@ -18,68 +10,68 @@ move 100 300 0
 rotate x 20
 rotate y 40
 scale 0.25 0.25 0.25
-box -500 -500 2000 1000 100 2000
+box green_rubber -500 -500 2000 1000 100 2000
 push
 //B
 move 0 -940 0 jump
 move 0 0 1800 forward
 move -440 600 0
-cylinder 0 0 0 40 160
+cylinder bouncy 0 0 0 40 160
 push
 rotate z -90
 push
 move 40 40 0
-cone 0 0 0 40 100
+cone bouncy 0 0 0 40 100
 pop
 push
 move 120 40 0
-cone 0 0 0 40 100
+cone bouncy 0 0 0 40 100
 pop
 pop
 //O
 push
 move 220 -80 0
-sphere 0 0 0 80
+sphere bouncy 0 0 0 80
 pop
 //U
 push
 move 350 0 0
-cylinder 0 0 0 20 160
+cylinder bouncy 0 0 0 20 160
 move 80 0 0
-cylinder 0 0 0 20 160
+cylinder bouncy 0 0 0 20 160
 push
 move 0 -140 0
 rotate z -90
-cylinder 0 0 0 20 80
+cylinder bouncy 0 0 0 20 80
 pop
 pop
 //N
 push
 move 500 0 0
-cylinder 0 0 0 20 160
+cylinder bouncy 0 0 0 20 160
 move 100 0 0
-cylinder 0 0 0 20 160
+cylinder bouncy 0 0 0 20 160
 push
 move 0 -150 0
 rotate z 215
-cylinder 0 0 0 20 179
+cylinder bouncy 0 0 0 20 179
 pop
 pop
 //C
 push
 move 675 0 0
-cylinder 0 0 0 20 160
+cylinder bouncy 0 0 0 20 160
 rotate z 90
-cylinder -20 0 0 20 100
-cylinder -140 0 0 20 100
+cylinder bouncy -20 0 0 20 100
+cylinder bouncy -140 0 0 20 100
 pop
 //E
 push
 move 825 0 0
-cylinder 0 0 0 20 160
+cylinder bouncy 0 0 0 20 160
 rotate z 90
-cylinder -20 0 0 20 100
-cylinder -80 0 0 20 100
-cylinder -140 0 0 20 100
+cylinder bouncy -20 0 0 20 100
+cylinder bouncy -80 0 0 20 100
+cylinder bouncy -140 0 0 20 100
 pop
 pop

@@ -16,4 +16,4 @@ clean:
 clear:
 	rm -rf __pycache__
 	rm -rf ply/__pycache__
-	rm *pyc *out parsetab.py *ppm *png
+	rm *pyc *out parsetab.py anim/*ppm anim/*png
