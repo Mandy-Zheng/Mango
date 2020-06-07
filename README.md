@@ -4,7 +4,7 @@
 
 #### Modifying MDL commands
 - Knob
-    - Adding 6 nonlinear animations
+    - Adding 6 nonlinear animations (in addition to linear)
         -bouncing
         -sin
         -cos
@@ -18,9 +18,9 @@
         **obj files should be stored obj directory**
 
 #### New MDL commands
-- Cylinder Shape (x,y,z,radius,height)
+- Cylinder Shape (x, y, z, radius, height)
     **cylinder based on center of top circle**
-- Cone Shape (x,y,z,radius,height)
+- Cone Shape (x, y, z, radius, height)
     **cone based on center of circle**
 
 **mdl files should be stored in mdl directory**
