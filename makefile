@@ -6,6 +6,7 @@ test: mdl/final0.mdl mdl/final1.mdl mdl/final2.mdl mdl/final3.mdl mdl/final4.mdl
 	python3 main.py mdl/final4.mdl
 	python3 main.py mdl/final5.mdl
 	python3 main.py mdl/final6.mdl
+	convert -delay 4 anim/final* final.gif
 
 
 clean:
