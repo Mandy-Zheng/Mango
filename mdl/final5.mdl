@@ -1,13 +1,6 @@
-constants brass 0.329412 0.780392 0.992157 0.223529 0.568627 0.941176 0.027451 0.113725 0.807843
-constants shiny_purple 0.2 0.3 0.7 0.0 0.0 0.0 0.0 0.3 0.7
-constants matte_purple 0.2 0.7 0.3 0.0 0.0 0.0 0.0 0.7 0.3
-constants shiny_purple 0.3 0.2 0.8 0.3 0.0 0.0 0.3 0.2 0.8
-constants shiny_teal 0.3 0.0 0.0 0.3 0.2 0.8 0.3 0.2 0.8
-constants dull_yellow 0.3 0.8 0.2 0.3 0.8 0.2 0 0 0
-constants brass 0.329412 0.780392 0.992157 0.223529 0.568627 0.941176 0.027451 0.113725 0.807843
-constants bronze 0.2125 0.714 0.393548 0.1275 0.4284 0.271906 0.054 0.18144 0.166721
-constants silver 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273 0.19225 0.50754 0.508273
-constants green_rubber 0.0 0.4 0.04 0.05 0.5 0.7 0.0 0.4 0.04
+constants road 0.176471 0.364706 0.176471 0.176471 0.282353 0.176471 0.176471 0.282353 0.176471
+constants plane 0.294118 0.694118 1.0 0.294118 0.690196 1.0 0.294118 0.670588 1.0
+constants paint 0.470588 1.0 1.0 0.470588 1.0 1.0 0.470588 1.0 1.0
 basename final5
 frames 43
 
@@ -15,7 +8,14 @@ move 400 350 0
 rotate x 30
 rotate y -30
 scale 2 2 2
-box -150 -130 130 300 25 100
+box road -150 -130 75 300 3 45
+box road -150 -130 130 300 3 45
+box road -150 -130 85 20 3 10
+box paint -130 -130 85 80 3 10
+box road -50 -130 85 20 3 10
+box paint -30 -130 85 80 3 10
+box road 50 -130 85 20 3 10
+box paint 70 -130 85 80 3 10
 move -100 0 0 entry
 move 0 -100 0 descend
 move 0 0 100 cos
@@ -23,7 +23,7 @@ move -50 0 0 sin1
 move 50 0 0 sin2
 rotate y 360 twist
 move -150 0 0 slow
-mesh :airplane
+mesh plane :airplane
 
 vary entry 0 4 0 1 linear
 vary entry 5 42 1 1 linear
