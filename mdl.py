@@ -379,7 +379,7 @@ lex.lex()
 yacc.yacc()
 
 def objParse(filename):
-    f = open(filename, "r")
+    f = open("obj/" + filename, "r")
     points = []
     order = []
     for line in f.readlines():
