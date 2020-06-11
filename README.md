@@ -2,15 +2,18 @@
 Note: MDL files are placed in the `mdl` directory for removal of clutter inside the repository.
 ## Modified MDL commands
 ### Vary
-    - Adding 6 nonlinear animations (in addition to linear)
-        - bouncing
-        - sin
-        - cos
-        - accelerate
-        - decelerate
-        - pause
-        **place vary type at the end of vary type**
-        **two optional inputs for bounce command: vary varname frame_begin frame_end 0 1 bouncing <num_bounces> <decay>**
+There are a total of 7 types of vary commands you can use when animating objects in a gif. This is the general format for the command, in general, for vary types:
+```
+vary <knob_name> <start_frame> <end_frame> <start_val> <end_val> <vary_type>
+```
+#### linear
+#### accelerate
+#### decelerate
+#### pause
+#### cosine
+#### sine
+#### bouncing
+two optional inputs for bounce command: vary varname frame_begin frame_end 0 1 bouncing <num_bounces> <decay>
 ### Mesh
 Provided an `.obj` file, it will place that mesh object in the image.
 ```
