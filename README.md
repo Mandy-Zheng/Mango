@@ -1,4 +1,5 @@
 # Mango (Amanda Zheng [P10] and George Zhou [P04])
+Note: MDL files are placed in the `mdl` directory for removal of clutter inside the repository.
 ## Modified MDL commands
 ### Vary
     - Adding 6 nonlinear animations (in addition to linear)
@@ -30,5 +31,3 @@ Creates a right, vertical cone in the image.
 cone [<constant>] <x> <y> <z> <radius> <height> [<coordinate_system>]
 ```
 The coordinates (x, y, z) is the center of the circular base at the bottom of the cone and the cone will be created from bottom to top.
-
-**mdl files should be stored in mdl directory**
