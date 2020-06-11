@@ -39,7 +39,7 @@ Creates a right, vertical cylinder in the image.
 cylinder [<constant>] <x> <y> <z> <radius> <height> [<coordinate_system>]
 ```
 The coordinates (x, y, z) is the center of the circular base at the top of the cyclinder and the cylinder will be created from top to down.
-### Cone Shape (x, y, z, radius, height)
+### Cone
 Creates a right, vertical cone in the image.
 ```
 cone [<constant>] <x> <y> <z> <radius> <height> [<coordinate_system>]
