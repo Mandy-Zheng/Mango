@@ -15,8 +15,7 @@ Provided an `.obj` file, it will place that object in the image
 ```
 mesh [<constant>] :<filename> [<coordinate_system>]
 ```
-Uses a function in `mdl.py` which parses the `.obj` file.
-All `.obj` files **must** be placed in the `obj` directory.
+Uses a function in `mdl.py` called `objParse()` which parses the `.obj` file. All `.obj` files **must** be placed in the `obj` directory in order for the file to be actually parced.
 
 ## New MDL commands
 ### Cylinder Shape (x, y, z, radius, height)
