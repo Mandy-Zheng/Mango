@@ -25,6 +25,10 @@ cylinder [<constant>] <x> <y> <z> <radius> <height> [<coordinate_system>]
 ```
 The coordinates (x, y, z) is the center of the circular base at the top of the cyclinder and the cylinder will be created from top to down.
 ### Cone Shape (x, y, z, radius, height)
-**cone based on center of circle**
+Creates a right, vertical cone in the image.
+```
+cone [<constant>] <x> <y> <z> <radius> <height> [<coordinate_system>]
+```
+The coordinates (x, y, z) is the center of the circular base at the bottom of the cone and the cone will be created from bottom to top.
 
 **mdl files should be stored in mdl directory**
